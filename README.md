@@ -35,6 +35,10 @@
 
 #### 使用技術
 
+- リポジトリ管理、デプロイ
+  - Git
+  - GitHub
+  - GitHubActions
 - フロント
   - マッピングのためのWebGL
   - 表示のためのVue.jsとNode.js
@@ -42,7 +46,7 @@
   - DB
   - python
     - マッピングのためのPCA（三次元）とkmeans
-    - レポート処理のためのjanome
+    - 自己紹介文章処理のためのjanome（アジャイル2サイクル目に考える）
 
 #### 概要
 
