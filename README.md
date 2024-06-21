@@ -76,12 +76,21 @@
     - インシデント報告、申請内容との差異
     - お偉いさんにも見てもらうようにすることで風紀の乱れ過ぎを防止
 
+個人情報ページ
+![](./readme_img/kozinnjouhou_page.jpg)
+
+能力・希望検索ページ
+![](./readme_img/nouryoku_kensaku_page.jpg)
+
+イベントの申請・催行の流れ
+![](./readme_img/event_tejun.jpg)
+
 #### その他基本設計など
 
 開発初期にテストケースを作成
 
 DB-ER
-![](./DB-ER.png)
+![](./readme_img/DB-ER.png)
 
 ### 草案 - 第二サイクル
 
