@@ -8,8 +8,9 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.m
 
 export default {
     name: 'relation_graph',
+    props: ["relation_data"],
     methods: {
-        main: ()=>{
+        main(){
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera();
 
@@ -18,18 +19,26 @@ export default {
             renderer.setAnimationLoop( animate );
             document.getElementById("relation_canvas").appendChild( renderer.domElement );
 
-            const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-            const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-            const cube = new THREE.Mesh( geometry, material );
-            scene.add( cube );
+            
+            var cubes = []
+            for(var i=0;i<this.relation_data.length;i++){
+                var geometry = new THREE.BoxGeometry( 0.3, 0.3, 0.3 );
+                var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                var cube = new THREE.Mesh( geometry, material )
+                cubes.push(cube);
+                cube.position.set(this.relation_data[i][0],this.relation_data[i][1],this.relation_data[i][2]);
+                console.log(this.relation_data[i][0],this.relation_data[i][1],this.relation_data[i][2])
+                scene.add(cube);
+            }
 
-            camera.position.z = 5;
+            // camera.position.z = 10;
+            var now_camera_rad = 0;
 
             function animate() {
-
-                cube.rotation.x += 0.01;
-                cube.rotation.y += 0.01;
-
+                now_camera_rad+=0.01
+                camera.position.x = Math.sin(now_camera_rad)*5;
+                camera.position.z = Math.cos(now_camera_rad)*5;
+                camera.lookAt(new THREE.Vector3(0, 0, 0));
                 renderer.render( scene, camera );
 
             }

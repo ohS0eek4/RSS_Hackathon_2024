@@ -10,102 +10,39 @@ import relation from './components/relation.vue'
   <header>
     <headlist />
   </header>
-  <main>
+  <main v-if="response">
     <hello />
     <hr />
-    <search_item @profile_select="profile_select" :skill_tags="all_skill_tags" :hobby_tags="all_hobby_tags" :hit_profiles="test_profile_datas" />
+    <search_item @profile_select="response.data.profile_select" :skill_tags="response.data.all_skill_tags" :hobby_tags="response.data.all_hobby_tags" :hit_profiles="response.data.profile_datas" />
     <hr />
-    <profile :skill_tags="all_skill_tags" :hobby_tags="all_hobby_tags" :profile_data="test_profile_datas[show_profile_id]" />
+    <profile :skill_tags="response.data.all_skill_tags" :hobby_tags="response.data.all_hobby_tags" :profile_data="response.data.profile_datas[show_profile_id]" />
     <hr />
-    <relation />
+    <relation :relation_data="response.data.reration_data" />
   </main>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "app",
   data() {
     return{
       show_profile_id:1,
-
-      all_skill_tags:["フロントエンド","バックエンド","組み込み","PM"],
-      all_hobby_tags:["絵描き","魚釣り"],
-      test_profile_datas:[
-        {
-          username: "とっとこhoge太郎",
-          img: "src/assets/plofile_img/monogatari_kyojinno_katani_noru.png",
-          affiliation: "ho-ge開発・PM",
-          skills: [[0,2],
-                  [1,3],
-                  [2,2],
-                  [3,3]],
-          hobbys: [[0,4],
-                  [1,3]],
-          comment:"肩にちっちゃい人間を載せています。英語は苦手です。",
-          desired:2,
-        },{
-          username: "とっとこhoge次郎",
-          img: "src/assets/plofile_img/2.png",
-          affiliation: "ho-ge開発・フロント",
-          skills: [[1,2],
-                  [3,3]],
-          hobbys: [[0,4],
-                  [1,3]],
-          comment:"肩にちっちゃい人間を載せています。英語は苦手です。",
-          desired:2,
-        },{
-          username: "とっとこhoge三郎",
-          img: "src/assets/plofile_img/3.png",
-          affiliation: "ho-ge開発・バック",
-          skills: [[0,2]],
-          hobbys: [[0,4]],
-          comment:"肩にちっちゃい人間を載せています。英語は苦手です。",
-          desired:2,
-        }
-      ],
-      test_rerations:[
-        {
-          from:0,
-          to:1,
-          level:3
-        },
-        {
-          from:2,
-          to:1,
-          level:4
-        },
-        {
-          from:1,
-          to:0,
-          level:2
-        },
-        {
-          from:1,
-          to:2,
-          level:5
-        },
-        {
-          from:0,
-          to:2,
-          level:4
-        },
-        {
-          from:2,
-          to:0,
-          level:4
-        },
-        {
-          from:0,
-          to:1,
-          level:4
-        },
-      ]
+      response:false
     }
   },
   methods: {
     profile_select(msg) {
       this.show_profile_id=msg
+    },
+    getdatas: async function() {
+      this.response = await axios.get('http://localhost:8080/json')
+      console.log(this.response.data)
     }
+  },
+  mounted(){
+    this.getdatas()
   }
 }
 </script>

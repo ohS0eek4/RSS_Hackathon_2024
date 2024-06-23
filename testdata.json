@@ -1,0 +1,74 @@
+{
+    "all_skill_tags":["フロントエンド","バックエンド","組み込み","PM"],
+    "all_hobby_tags":["絵描き","魚釣り"],
+    "profile_datas":[
+    {
+        "username": "とっとこhoge太郎",
+        "img": "src/assets/plofile_img/monogatari_kyojinno_katani_noru.png",
+        "affiliation": "ho-ge開発・PM",
+        "skills": [[0,2],
+                [1,3],
+                [2,2],
+                [3,3]],
+        "hobbys": [[0,4],
+                [1,3]],
+        "comment":"肩にちっちゃい人間を載せています。英語は苦手です。",
+        "desired":2
+    },{
+        "username": "とっとこhoge次郎",
+        "img": "src/assets/plofile_img/2.png",
+        "affiliation": "ho-ge開発・フロント",
+        "skills": [[1,2],
+                [3,3]],
+        "hobbys": [[0,4],
+                [1,3]],
+        "comment":"肩にちっちゃい人間を載せています。英語は苦手です。",
+        "desired":2
+        },{
+        "username": "とっとこhoge三郎",
+        "img": "src/assets/plofile_img/3.png",
+        "affiliation": "ho-ge開発・バック",
+        "skills": [[0,2]],
+        "hobbys": [[0,4]],
+        "comment":"肩にちっちゃい人間を載せています。英語は苦手です。",
+        "desired":2
+    }],
+    "rerations":[
+        {
+        "from":0,
+        "to":1,
+        "level":3
+        },
+        {
+        "from":2,
+        "to":1,
+        "level":4
+        },
+        {
+        "from":1,
+        "to":0,
+        "level":2
+        },
+        {
+        "from":1,
+        "to":2,
+        "level":5
+        },
+        {
+        "from":0,
+        "to":2,
+        "level":4
+        },
+        {
+        "from":2,
+        "to":0,
+        "level":4
+        },
+        {
+        "from":0,
+        "to":1,
+        "level":4
+        }
+    ],
+    "reration_data":[[1,0.5,-0.2,{"1":0.3,"2":0.5,"3":0.2}],[1,0.5,0.6,{"0":0.3,"2":0.5,"3":0.2}],[1,-0.5,-0.2,{"1":0.3,"0":0.5,"3":0.2}],[-1,0.5,-0.2,{"1":0.3,"2":0.5,"0":0.2}]]
+}
