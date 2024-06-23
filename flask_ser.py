@@ -1,20 +1,20 @@
 import json
 from flask import Flask
 from flask_cors import cross_origin
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
-import pandas as pd
+# from sklearn.cluster import KMeans
+# from sklearn.decomposition import PCA
+# import pandas as pd
 
-pca = PCA()
-kmeans = KMeans(n_clusters=6)
+# pca = PCA()
+# kmeans = KMeans(n_clusters=6)
 app = Flask(__name__)
 
 
-with open('testdata.json') as f:
-    d = json.load(f)
-jsondata=json.dumps(d)
-print(pd.DataFrame(d["rerations"]))
-relation_matrix=[[0 for i in d["profile_datas"]] for i in d["profile_datas"]]
+# with open('testdata.json') as f:
+#     d = json.load(f)
+# jsondata=json.dumps(d)
+# print(pd.DataFrame(d["rerations"]))
+# relation_matrix=[[0 for i in d["profile_datas"]] for i in d["profile_datas"]]
 
 
 
